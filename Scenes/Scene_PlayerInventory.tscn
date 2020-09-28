@@ -1,0 +1,287 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/Script_PlayerInventory.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Database/Item_Icons/empty_slot.png" type="Texture" id=3]
+[ext_resource path="res://asset/33.png" type="Texture" id=4]
+[ext_resource path="res://font.tres" type="DynamicFont" id=5]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 496, 685 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxTexture" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="CameraTexture" id=7]
+
+[node name="Inv" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 800.0
+margin_bottom = 450.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite_DraggedItem" type="Sprite" parent="Panel"]
+visible = false
+z_index = 1
+z_as_relative = false
+
+[node name="ItemList" type="ItemList" parent="Panel"]
+margin_left = 180.756
+margin_top = 29.2239
+margin_right = 780.756
+margin_bottom = 419.224
+custom_styles/selected_focus = SubResource( 2 )
+custom_styles/bg_focus = SubResource( 3 )
+custom_styles/cursor_unfocused = SubResource( 4 )
+custom_styles/selected = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
+custom_colors/guide_color = Color( 0, 0, 0, 0 )
+custom_constants/vseparation = 10
+custom_constants/hseparation = 15
+items = [ "", ExtResource( 3 ), false, "Item 1", null, false, "", ExtResource( 3 ), false, "", null, false ]
+allow_reselect = true
+auto_height = true
+max_columns = 0
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2( 48, 48 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_AddItem" type="Button" parent="Panel"]
+margin_left = 20.0
+margin_top = 370.0
+margin_right = 110.0
+margin_bottom = 420.0
+text = "Add Item"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowDialog_AddItemWindow" type="WindowDialog" parent="Panel"]
+margin_left = 240.0
+margin_top = 160.0
+margin_right = 610.0
+margin_bottom = 300.0
+window_title = "Add Item"
+
+[node name="AddItemWindow_Label_ItemID" type="Label" parent="Panel/WindowDialog_AddItemWindow"]
+margin_left = 125.0
+margin_top = 40.0
+margin_right = 179.0
+margin_bottom = 54.0
+size_flags_vertical = 0
+text = "Item ID:"
+align = 2
+valign = 1
+
+[node name="AddItemWindow_SpinBox_ItemID" type="SpinBox" parent="Panel/WindowDialog_AddItemWindow"]
+margin_left = 185.0
+margin_top = 34.0
+margin_right = 259.0
+margin_bottom = 58.0
+min_value = 1.0
+value = 1.0
+
+[node name="AddItemWindow_Button_AddItem" type="Button" parent="Panel/WindowDialog_AddItemWindow"]
+margin_left = 80.0
+margin_top = 90.0
+margin_right = 180.0
+margin_bottom = 120.0
+text = "Add"
+
+[node name="AddItemWindow_Button_Close" type="Button" parent="Panel/WindowDialog_AddItemWindow"]
+margin_left = 200.0
+margin_top = 90.0
+margin_right = 300.0
+margin_bottom = 120.0
+text = "Close"
+
+[node name="WindowDialog_SplitItemWindow" type="WindowDialog" parent="Panel"]
+margin_left = 240.0
+margin_top = 160.0
+margin_right = 610.0
+margin_bottom = 300.0
+window_title = "Split Item"
+
+[node name="SplitItemWindow_Button_Split" type="Button" parent="Panel/WindowDialog_SplitItemWindow"]
+margin_left = 80.0
+margin_top = 90.0
+margin_right = 180.0
+margin_bottom = 120.0
+text = "Split"
+
+[node name="SplitItemWindow_Button_Cancel" type="Button" parent="Panel/WindowDialog_SplitItemWindow"]
+margin_left = 200.0
+margin_top = 90.0
+margin_right = 300.0
+margin_bottom = 120.0
+text = "Cancel"
+
+[node name="SplitItemWindow_HSlider_Amount" type="HSlider" parent="Panel/WindowDialog_SplitItemWindow"]
+margin_left = 80.0
+margin_top = 30.0
+margin_right = 300.0
+margin_bottom = 46.0
+min_value = 1.0
+value = 1.0
+tick_count = 1
+ticks_on_borders = true
+
+[node name="SplitItemWindow_Label_Amount" type="Label" parent="Panel/WindowDialog_SplitItemWindow"]
+margin_left = 80.0
+margin_top = 60.0
+margin_right = 300.0
+margin_bottom = 74.0
+text = "1"
+align = 1
+
+[node name="WindowDialog_ItemMenu" type="WindowDialog" parent="Panel"]
+margin_left = 300.0
+margin_top = 130.0
+margin_right = 590.0
+margin_bottom = 370.0
+
+[node name="ItemMenu_TextureFrame_Icon" type="TextureRect" parent="Panel/WindowDialog_ItemMenu"]
+margin_left = 120.0
+margin_top = 10.0
+margin_right = 168.0
+margin_bottom = 58.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemMenu_RichTextLabel_ItemInfo" type="RichTextLabel" parent="Panel/WindowDialog_ItemMenu"]
+margin_left = 10.0
+margin_top = 70.0
+margin_right = 280.0
+margin_bottom = 170.0
+bbcode_enabled = true
+
+[node name="ItemMenu_Button_DropItem" type="Button" parent="Panel/WindowDialog_ItemMenu"]
+margin_left = 166.522
+margin_top = 193.364
+margin_right = 266.522
+margin_bottom = 223.364
+text = "Drop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemMenu_Button_Use" type="Button" parent="Panel/WindowDialog_ItemMenu"]
+margin_left = 27.5804
+margin_top = 192.523
+margin_right = 127.58
+margin_bottom = 222.523
+text = "Use"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="Button" parent="Panel"]
+margin_left = 0.841843
+margin_top = 23.2911
+margin_right = 49.8418
+margin_bottom = 43.2911
+text = "Close"
+icon = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top" type="Panel" parent="Panel"]
+self_modulate = Color( 0.282353, 0.282353, 0.282353, 1 )
+margin_left = -9.0
+margin_right = 809.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/Top"]
+margin_left = 370.0
+margin_right = 465.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 5 )
+text = "INVENTORY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Damage" type="Label" parent="Panel"]
+margin_left = 20.0
+margin_top = 140.0
+margin_right = 60.0
+margin_bottom = 154.0
+custom_fonts/font = ExtResource( 5 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Defense" type="Label" parent="Panel"]
+margin_left = 20.0
+margin_top = 160.0
+margin_right = 60.0
+margin_bottom = 174.0
+custom_fonts/font = ExtResource( 5 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Label" parent="Panel"]
+margin_left = 20.0
+margin_top = 179.676
+margin_right = 60.0
+margin_bottom = 193.676
+custom_fonts/font = ExtResource( 5 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hungry" type="Label" parent="Panel"]
+margin_left = 20.0
+margin_top = 200.0
+margin_right = 60.0
+margin_bottom = 214.0
+custom_fonts/font = ExtResource( 5 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+[connection signal="item_rmb_selected" from="Panel/ItemList" to="." method="_on_ItemList_item_rmb_selected"]
+[connection signal="mouse_entered" from="Panel/ItemList" to="." method="_on_ItemList_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/ItemList" to="." method="_on_ItemList_mouse_exited"]
+[connection signal="pressed" from="Panel/Button_AddItem" to="." method="_on_Button_AddItem_pressed"]
+[connection signal="pressed" from="Panel/WindowDialog_AddItemWindow/AddItemWindow_Button_AddItem" to="." method="_on_AddItemWindow_Button_AddItem_pressed"]
+[connection signal="pressed" from="Panel/WindowDialog_AddItemWindow/AddItemWindow_Button_Close" to="." method="_on_AddItemWindow_Button_Close_pressed"]
+[connection signal="pressed" from="Panel/WindowDialog_SplitItemWindow/SplitItemWindow_Button_Split" to="." method="_on_SplitItemWindow_Button_Split_pressed"]
+[connection signal="pressed" from="Panel/WindowDialog_SplitItemWindow/SplitItemWindow_Button_Cancel" to="." method="_on_SplitItemWindow_Button_Cancel_pressed"]
+[connection signal="value_changed" from="Panel/WindowDialog_SplitItemWindow/SplitItemWindow_HSlider_Amount" to="." method="_on_SplitItemWindow_HSlider_Amount_value_changed"]
+[connection signal="pressed" from="Panel/WindowDialog_ItemMenu/ItemMenu_Button_DropItem" to="." method="_on_ItemMenu_Button_DropItem_pressed"]
+[connection signal="pressed" from="Panel/WindowDialog_ItemMenu/ItemMenu_Button_Use" to="." method="_on_ItemMenu_Button_Use_pressed"]
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_CloseButton_pressed"]

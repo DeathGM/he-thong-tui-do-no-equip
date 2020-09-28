@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/ItemD.gd" type="Script" id=2]
+
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.69965
+height = 11.5591
+
+[sub_resource type="Animation" id=2]
+resource_name = "m"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.707905, -5.07332 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.00452, -2.56133 ), Vector2( -1.29662, -7.63466 ), Vector2( -1.76976, -1.88775 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -105.0 ]
+}
+
+[node name="ItemDrop" type="Area2D"]
+z_index = -2
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.0356045, -0.255166 )
+region_rect = Rect2( 32, 96, 16, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.96892, -2.8165 )
+rotation = -1.83259
+shape = SubResource( 1 )
+
+[node name="life_time" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "m"
+playback_speed = 0.5
+anims/m = SubResource( 2 )
+
+[node name="time_to_pick" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+[connection signal="body_entered" from="." to="." method="_on_Food_body_entered"]
+[connection signal="timeout" from="life_time" to="." method="_on_life_time_timeout"]
+[connection signal="timeout" from="time_to_pick" to="." method="_on_time_to_pick_timeout"]

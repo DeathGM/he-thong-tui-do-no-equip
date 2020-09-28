@@ -1,0 +1,156 @@
+{
+	"0": {
+		"name": "",
+		"icon": "res://Database/Item_Icons/empty_slot.png",
+		"type": "misc",
+		"weight": 0.0,
+		"stackable": false,
+		"stack_limit": 1,
+		"description": "",
+		"sell_price": 0,
+		"use":"",
+	},
+	"1": {
+		"name": "Meat",
+		"icon": "res://Database/Item_Icons/item_2.png",
+		"type": "Food",
+		"weight": 1.1,
+		"stackable": true,
+		"stack_limit": 10,
+		"description": "Raw meat",
+		"sell_price": 95,
+		"use":"hungry + 3",
+		"drop":"meat"
+	},
+	
+	"2": {
+		"name": "Egg",
+		"icon": "res://Database/Item_Icons/item_3.png",
+		"type": "Food",
+		"weight": 1.0,
+		"stackable": true,
+		"stack_limit": 10,
+		"description": "Thit de ra tu trung.",
+		"sell_price": 111,
+		"use":"hungry + 3",
+		"drop":"egg"
+	},
+	
+	"3": {
+		"name": "Wood",
+		"icon": "res://Database/Item_Icons/item_1.png",
+		"type": "Food",
+		"weight": 1.5,
+		"stackable": true,
+		"stack_limit": 10,
+		"description": "Go duoc cat tu cay.",
+		"sell_price": 6,
+		"use":"The wood is cut from a tree.",
+		"drop":"wood"
+	},
+	
+	"4": {
+		"name": "Tomato",
+		"icon": "res://Database/Item_Icons/item_4.png",
+		"type": "equipment",
+		"weight": 1.1,
+		"stackable": true,
+		"stack_limit": 15,
+		"description": "Day la ca chua.",
+		"sell_price": 25,
+		"use":"health + 2",
+		"drop":"tomato"
+	},
+	
+	"5": {
+		"name": "Corn",
+		"icon": "res://Database/Item_Icons/item_5.png",
+		"type": "equipment",
+		"weight": 1.1,
+		"stackable": true,
+		"stack_limit": 10,
+		"description": "Ngo duoc trong tu bap.",
+		"sell_price": 10,
+		"use":"hungry + 2",
+		"drop":"corn"
+	},
+	
+	"6": {
+		"name": "Potion Level 1",
+		"icon": "res://Database/Item_Icons/item_6.png",
+		"type": "equipment",
+		"weight": 0.5,
+		"stackable": true,
+		"stack_limit": 1,
+		"description": "Potion Level 2.",
+		"sell_price": 140,
+		"use":"health + 5",
+		"drop":"potion1"
+	},
+	
+	"7": {
+		"name": "Potion Level 2",
+		"icon": "res://Database/Item_Icons/item_7.png",
+		"type": "misc",
+		"weight": 0.87,
+		"stackable": true,
+		"stack_limit": 15,
+		"description": "Potion Level 2",
+		"sell_price": 290,
+		"use":"health + 10",
+		"drop":"potion2"
+	},
+	
+	"8": {
+		"name": "Potion Level 3",
+		"icon": "res://Database/Item_Icons/item_8.png",
+		"type": "misc",
+		"weight": 2.5,
+		"stackable": true,
+		"stack_limit": 12,
+		"description": "Powerful Potion.",
+		"sell_price": 300,
+		"use":"health + 30",
+		"drop":"potion3"
+		
+	},
+	
+	"9": {
+		"name": "Pork",
+		"icon": "res://Database/Item_Icons/item_9.png",
+		"type": "misc",
+		"weight": 1,
+		"stackable": true,
+		"stack_limit": 30,
+		"description": "Thit heo tu con lon",
+		"sell_price": 30,
+		"use":"hungry + 2",
+		"drop":"pork"
+	},
+	
+	"10": {
+		"name": "",
+		"icon": "res://Database/Item_Icons/.png",
+		"type": "n",
+		"weight": 1,
+		"stackable": true,
+		"stack_limit": 30,
+		"description": "",
+		"sell_price": 1,
+		"use":"",
+		"drop":""
+	},
+	
+	"11": {
+		"name": "",
+		"icon": "res://Database/Item_Icons/.png",
+		"type": "n",
+		"weight": 1,
+		"stackable": true,
+		"stack_limit": 30,
+		"description": "",
+		"sell_price": 1,
+		"use":"",
+		"drop":""
+	}
+}
