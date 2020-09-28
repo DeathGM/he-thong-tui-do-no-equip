@@ -3,7 +3,8 @@ extends Area2D
 
 var item = ""
 func _on_Food_body_entered(body):
-	
+	# Them vat pham ma ban muon them vao duoi day
+	# Chinh Timer cua scene Item.tscn neu muon sau khi rot item thi sao bn giay no se luom duoc
 	if body.name =="Player" and $time_to_pick.time_left == 0:
 		match item:
 			"meat":
